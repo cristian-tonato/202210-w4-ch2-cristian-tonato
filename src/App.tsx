@@ -7,7 +7,6 @@ import { PersonalData } from "./components/formulario/formulario";
 function App() {
     return (
         <>
-        <header></header>
         
             <PersonalData></PersonalData>
         
