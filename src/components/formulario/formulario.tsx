@@ -1,10 +1,11 @@
+import { useState } from "react";
 
 
 type Personal= {
     name: string;
     lastName: string;
-    birthDate: number;
-    Gender: string;
+    birthday: number;
+    gender: string;
     email: string;
     info: boolean;
 }
@@ -13,38 +14,116 @@ export function PersonalData() {
     const personal: Personal ={
     name: "",
     lastName: "",
-    birthDate: 0,
-    Gender: "",
+    birthday: 0,
+    gender: "",
     email: "",
     info: false
     }
+
+    const[form,setForm]= useState(personal);
+    
+    const handlerSubmit = (ev: any) => {
+        ev.preventDefault();
+        console.log("Enviando");
+    }
+
+        const handleForm = (ev: any) => {
+            const element = ev.target as HTMLFormElement;
+            setForm({
+                ...form,
+                [element.name]:
+                    element.type === "checkbox"
+                        ? element.checked
+                        : element.value,
+            });
+        };
+    
     return (
         <>
-            <form>
+            <form onSubmit={handlerSubmit}>
                 <legend>FORM</legend>
                 <div>
-                    <input type="text" name="name" placeholder="Name" />
+                    <label>
+                        NAME:{" "}
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                            value={form.name}
+                            onInput={handleForm}
+                        />
+                    </label>
                 </div>
                 <div>
-                    <input
-                        type="text"
-                        name="LastName"
-                        placeholder="Last Name"
-                    />
+                    <label>
+                        LASTNAME:
+                        <input
+                            type="text"
+                            name="lastName"
+                            placeholder="Last Name"
+                            value={form.lastName}
+                            onInput={handleForm}
+                        />
+                    </label>
                 </div>
                 <div>
-                    <input type="text" name="Birthday" placeholder="Birthday" />
+                    <label>
+                        BD
+                        <input
+                            type="text"
+                            name="birthday"
+                            placeholder="Birthday"
+                            value={form.birthday}
+                            onInput={handleForm}
+                        />
+                    </label>
                 </div>
                 <div>
-                    <input type="radio" name="Gender" />MALE
-                    <input type="radio" name="Gender" />FEMALE
+                    <legend>GENDER</legend>
+                    <fieldset>
+                        <label>
+                            <input
+                                type="radio"
+                                name="gender"
+                                value={form.gender}
+                                onInput={handleForm}
+                            />
+                            MALE
+                            <input
+                                type="radio"
+                                name="gender"
+                                value={form.gender}
+                                onInput={handleForm}
+                            />
+                            FEMALE
+                        </label>
+                    </fieldset>
                 </div>
                 <div>
-                    <input type="email" name="Email" placeholder="email" />
+                    <label>
+                        EMAIL{" "}
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="email"
+                            value={form.email}
+                            onInput={handleForm}
+                        />
+                    </label>
                 </div>
                 <div>
-                    <input type="checkbox" name="Info" />
-                    NEWSLETTER
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="info"
+                            checked={form.info}
+                            onInput={handleForm}
+                        />
+                        NEWSLETTER
+                    </label>
+                </div>
+                <div>
+                    <button type="submit">ENVIAR</button>
                 </div>
             </form>
         </>
