@@ -8,9 +8,8 @@ function App() {
     return (
         <>
         <header></header>
-        <body>
+        
             <PersonalData></PersonalData>
-        </body>
         
         </>
     );
