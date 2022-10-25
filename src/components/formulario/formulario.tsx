@@ -1,74 +1,52 @@
-import { SyntheticEvent, useState } from "react";
-//import "./formulario.scss";
 
-type User = {
+
+type Personal= {
     name: string;
-    age: number;
-    phone: string;
-    isOk: boolean;
-};
+    lastName: string;
+    birthDate: number;
+    Gender: string;
+    email: string;
+    info: boolean;
+}
 
-export function Formulario() {
-    const user: User = { name: "", age: 0, phone: "", isOk: false };
-
-    const [form, setForm] = useState(user);
-
-    const handlerSubmit = (ev: SyntheticEvent) => {
-        ev.preventDefault();
-        console.log("Enviando");
-    };
-
-    const handleForm = (ev: SyntheticEvent) => {
-        const element = ev.target as HTMLFormElement;
-        setForm({
-            ...form,
-            [element.name]:
-                element.type === "checkbox" ? element.checked : element.value,
-        });
-    };
-
+export function PersonalData() {
+    const personal: Personal ={
+    name: "",
+    lastName: "",
+    birthDate: 0,
+    Gender: "",
+    email: "",
+    info: false
+    }
     return (
-        <form onSubmit={handlerSubmit}>
-            <legend>Formulario</legend>
-            <div>
-                <input
-                    type="text"
-                    name="name"
-                    value={form.name}
-                    onInput={handleForm}
-                    placeholder="Dime tu nombre"
-                />
-            </div>
-            <div>
-                <input
-                    type="text"
-                    name="age"
-                    value={form.age}
-                    onInput={handleForm}
-                    placeholder="Dime tu edad"
-                />
-            </div>
-            <div>
-                <input
-                    type="tel"
-                    name="phone"
-                    value={form.phone}
-                    onInput={handleForm}
-                    placeholder="Teléfono"
-                />
-            </div>
-            <div>
-                <label>
+        <>
+            <form>
+                <legend>FORM</legend>
+                <div>
+                    <input type="text" name="name" placeholder="Name" />
+                </div>
+                <div>
                     <input
-                        type="checkbox"
-                        name="isOk"
-                        checked={form.isOk}
-                        onChange={handleForm}
-                    />{" "}
-                    Estoy de acuerdo ...
-                </label>
-            </div>
-            <button type="submit">Enviar</button>
-        </form>
+                        type="text"
+                        name="LastName"
+                        placeholder="Last Name"
+                    />
+                </div>
+                <div>
+                    <input type="text" name="Birthday" placeholder="Birthday" />
+                </div>
+                <div>
+                    <input type="radio" name="Gender" />MALE
+                    <input type="radio" name="Gender" />FEMALE
+                </div>
+                <div>
+                    <input type="email" name="Email" placeholder="email" />
+                </div>
+                <div>
+                    <input type="checkbox" name="Info" />
+                    NEWSLETTER
+                </div>
+            </form>
+        </>
     );
 }
