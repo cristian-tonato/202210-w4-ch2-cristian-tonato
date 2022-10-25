@@ -4,22 +4,24 @@
     padding: 0;
     
 }
-
 body{
-    background-color: rgb(57, 185, 185);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; 
-}
-div{
-    background-color: beige;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #f6c4a7;
 }
 form{
     background-color: blue;
+    margin-block: 10px;
+    width: 100%;
+    padding: 1.5rem;
+    background-color: #8b7b97;
+    color: white;
 
 }
-
+.App {
+    background-color: #f6c4a7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
