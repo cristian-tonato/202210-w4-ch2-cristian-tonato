@@ -1,25 +1,41 @@
 *{
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    margin: 0.5rem;
+    padding: 0.5rem;
     
 }
-
 body{
-    background-color: rgb(57, 185, 185);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; 
+    background-color: #00b5b3;
 }
-div{
-    background-color: beige;
+h1{
     display: flex;
     justify-content: center;
-    align-items: center;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: white;
+    color: azure;
+}
+h2{
+    color: white;
+    display: flex;
+    justify-content: center;
 }
 form{
-    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    margin-block: 50px;
+    min-width: 100vh;
+    min-height: 100vw;
+    background-color: #0085a2;
+    color: white;
+    align-items: flex-start;
+    font-size:large
+}
 
+button{
+    border-radius: 10px;
+    border-style:hidden;
+    height: 50px;
+    width: 80px;
 }
 

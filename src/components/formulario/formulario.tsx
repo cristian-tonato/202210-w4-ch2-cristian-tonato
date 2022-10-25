@@ -52,14 +52,14 @@ export function PersonalData() {
             const template = (
                 <>
                     <form onSubmit={handlerSubmit}>
-                        <legend>FORM</legend>
+                        <h2>REGISTER</h2>
                         <div>
                             <label>
-                                NAME:{" "}
+                                Name:{" "}
                                 <input
                                     type="text"
                                     name="name"
-                                    placeholder="Name"
+                                    placeholder="Enter your Name"
                                     value={form.name}
                                     onInput={handleForm}
                                 />
@@ -67,11 +67,11 @@ export function PersonalData() {
                         </div>
                         <div>
                             <label>
-                                LASTNAME:
+                                Last Name:
                                 <input
                                     type="text"
                                     name="lastName"
-                                    placeholder="Last Name"
+                                    placeholder="Enter your Last Name"
                                     value={form.lastName}
                                     onInput={handleForm}
                                 />
@@ -79,7 +79,7 @@ export function PersonalData() {
                         </div>
                         <div>
                             <label>
-                                BD
+                                BirthDate
                                 <input
                                     type="date"
                                     name="birthday"
@@ -90,7 +90,7 @@ export function PersonalData() {
                             </label>
                         </div>
                         <div>
-                            <legend>GENDER</legend>
+                            <legend>GENDER : </legend>
                             <fieldset>
                                 <label>
                                     <input
@@ -107,16 +107,22 @@ export function PersonalData() {
                                         onChange={handleForm}
                                     />
                                     FEMALE
+                                    <input
+                                        type="radio"
+                                        name="gender"
+                                        value="other"
+                                        onChange={handleForm}
+                                    />OTHER
                                 </label>
                             </fieldset>
                         </div>
                         <div>
                             <label>
-                                EMAIL{" "}
+                                EMAIL  : {" "}
                                 <input
                                     type="email"
                                     name="email"
-                                    placeholder="email"
+                                    placeholder="Enter your email"
                                     value={form.email}
                                     onInput={handleForm}
                                 />
@@ -130,7 +136,7 @@ export function PersonalData() {
                                     checked={form.info}
                                     onChange={handleForm}
                                 />
-                                NEWSLETTER
+                                DO YOU WISH RECEIVE NEWSLETTER?
                             </label>
                         </div>
                         <div>
@@ -153,11 +159,12 @@ export function PersonalData() {
     return template
        }
        const accessData=()=>{
-        const template=( 
+        const template = (
             <>
                 <form onSubmit={handlerSubmit}>
-                    <legend>Formulario</legend>
+                    <h2>ACOUNT</h2>
                     <div>
+                        USERNAME:
                         <input
                             type="text"
                             name="username"
@@ -166,6 +173,7 @@ export function PersonalData() {
                         />
                     </div>
                     <div>
+                        PASSWORD:{" "}
                         <input
                             type="password"
                             name="password"
@@ -175,8 +183,20 @@ export function PersonalData() {
                         />
                     </div>
                     <div>
-                        <legend>Acount type</legend>
-                        <select name="acount" required>
+                        CONFIRM PASSWORD:{" "}
+                        <input
+                            type="password"
+                            name="repeatPassword"
+                            onChange={handleForm}
+                            placeholder="Repeat password"
+                            value={form.repeatPassword}
+                            required
+                        />
+                    </div>
+                    <div>
+    
+                        ACOUNT TYPE: 
+                            <select name="acount" required>
                             <option value="PER">PERSONAL</option>
                             <option value="PRO">PRO</option>
                             <option value="BUS">BUSSINES</option>
@@ -197,7 +217,7 @@ export function PersonalData() {
                                 handlerCounter(1);
                             }}
                         >
-                            Continue
+                           Next
                         </button>
                     </div>
                 </form>
@@ -224,7 +244,7 @@ export function PersonalData() {
                     handlerCounter(-1)
                 }}
                 
-                >PREVious</button>
+                >Previous</button>
             </div>
             </>
         );
